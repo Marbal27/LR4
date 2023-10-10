@@ -17,7 +17,6 @@ public class SecondActivity extends AppCompatActivity {
     public void btn_day(View view) {
         Intent intent = new Intent(SecondActivity.this, ActivityDAY.class);
         intent.putExtra("FROM","перешли на ДЕНЬ");
-
         startActivity(intent);
     }
 }

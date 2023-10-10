@@ -31,8 +31,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btn_evening(View view) {
+        Intent intent = new Intent(MainActivity.this, ActivityEvening.class);
+        intent.putExtra("FROM","перешли на ВЕЧЕР");
+        startActivity(intent);
     }
 
     public void btn_night(View view) {
+        Intent intent = new Intent(MainActivity.this, ActivityNight.class);
+        intent.putExtra("FROM","перешли на НОЧЬ");
+        startActivity(intent);
     }
 }

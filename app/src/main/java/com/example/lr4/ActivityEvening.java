@@ -13,7 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
-public class ActivityDAY extends AppCompatActivity {
+public class ActivityEvening extends AppCompatActivity {
 
     private static final String CHANEL_ID = "ch1";
     private NotificationManagerCompat notificationManagerCompat;
@@ -21,7 +21,7 @@ public class ActivityDAY extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_day);
+        setContentView(R.layout.activity_evening);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(CHANEL_ID, "chanel 1", NotificationManager.IMPORTANCE_DEFAULT);
@@ -33,10 +33,10 @@ public class ActivityDAY extends AppCompatActivity {
     }
 
     public void btn_push(View view) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(ActivityDAY.this, CHANEL_ID)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(ActivityEvening.this, CHANEL_ID)
                 .setSmallIcon(R.drawable.s)
-                .setContentTitle("Уведомление о работе")
-                .setContentText("Скоро конец рабочего дня!")
+                .setContentTitle("Уведомление после Смешариков")
+                .setContentText("СПАТЬ ПОРА!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -52,10 +52,9 @@ public class ActivityDAY extends AppCompatActivity {
         notificationManagerCompat.notify(1, builder.build());
     }
 
-
-    public void btn_evening(View view) {
-        Intent intent = new Intent(ActivityDAY.this, ActivityEvening.class);
-        intent.putExtra("FROM","перешли на ВЕЧЕР");
+    public void btn_night(View view) {
+        Intent intent = new Intent(ActivityEvening.this, ActivityNight.class);
+        intent.putExtra("FROM","перешли на НОЧЬ");
         startActivity(intent);
     }
 }
